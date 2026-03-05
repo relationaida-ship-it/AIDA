@@ -1,4 +1,9 @@
+"use client";
+import { useState } from "react";
+
 export default function HomePage() {
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
     <div
       style={{
@@ -7,9 +12,10 @@ export default function HomePage() {
         padding: "20px",
         fontFamily: "sans-serif",
         lineHeight: 1.5,
-        backgroundColor: "#0070f3",
+        backgroundColor: "white",
         minHeight: "100vh",
-        color: "white"
+        color: "black",
+        paddingBottom: "120px"
       }}
     >
       {/* Bienvenue */}
@@ -17,14 +23,15 @@ export default function HomePage() {
         style={{
           fontSize: "32px",
           fontWeight: "bold",
-          marginBottom: "25px"
+          marginBottom: "25px",
+          color: "#0070f3"
         }}
       >
         Bienvenue, Utilisateur
       </h1>
 
       {/* Prochains rendez-vous */}
-      <h2 style={{ fontSize: "22px", marginBottom: "10px" }}>
+      <h2 style={{ fontSize: "22px", marginBottom: "10px", color: "#0070f3" }}>
         Mes prochains rendez-vous
       </h2>
 
@@ -34,7 +41,8 @@ export default function HomePage() {
           color: "black",
           padding: "15px",
           borderRadius: "12px",
-          marginBottom: "15px"
+          marginBottom: "15px",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
         }}
       >
         <strong>Rendez-vous CAF</strong><br />
@@ -48,7 +56,8 @@ export default function HomePage() {
           color: "black",
           padding: "15px",
           borderRadius: "12px",
-          marginBottom: "25px"
+          marginBottom: "25px",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
         }}
       >
         <strong>Rendez-vous Préfecture</strong><br />
@@ -57,7 +66,9 @@ export default function HomePage() {
       </div>
 
       {/* À faire */}
-      <h2 style={{ fontSize: "22px", marginBottom: "10px" }}>À faire</h2>
+      <h2 style={{ fontSize: "22px", marginBottom: "10px", color: "#0070f3" }}>
+        À faire
+      </h2>
 
       <ul style={{ listStyle: "none", padding: 0, marginBottom: "25px" }}>
         <li style={{ fontSize: "18px", marginBottom: "8px" }}>🟠 Fournir justificatif de domicile</li>
@@ -66,7 +77,9 @@ export default function HomePage() {
       </ul>
 
       {/* Actions rapides */}
-      <h2 style={{ fontSize: "22px", marginBottom: "15px" }}>Actions rapides</h2>
+      <h2 style={{ fontSize: "22px", marginBottom: "15px", color: "#0070f3" }}>
+        Actions rapides
+      </h2>
 
       <div
         style={{
@@ -101,7 +114,66 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* MENU DU BAS */}
+      {/* MENU FLOTTANT DU BOUTON + */}
+      {openMenu && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "90px",
+            left: 0,
+            right: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "15px",
+            zIndex: 200
+          }}
+        >
+          <div
+            style={{
+              background: "white",
+              padding: "15px 20px",
+              borderRadius: "12px",
+              fontSize: "20px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+              width: "80%",
+              textAlign: "center"
+            }}
+          >
+            📷 Scanner un document
+          </div>
+
+          <div
+            style={{
+              background: "white",
+              padding: "15px 20px",
+              borderRadius: "12px",
+              fontSize: "20px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+              width: "80%",
+              textAlign: "center"
+            }}
+          >
+            📄 Ajouter un fichier
+          </div>
+
+          <div
+            style={{
+              background: "white",
+              padding: "15px 20px",
+              borderRadius: "12px",
+              fontSize: "20px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+              width: "80%",
+              textAlign: "center"
+            }}
+          >
+            🎤 Dicter un document
+          </div>
+        </div>
+      )}
+
+      {/* MENU DU BAS FINAL */}
       <div
         style={{
           position: "fixed",
@@ -113,21 +185,27 @@ export default function HomePage() {
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
-          color: "white"
+          color: "white",
+          zIndex: 100
         }}
       >
-        <div style={{ textAlign: "center", fontSize: "14px" }}>
+        <a href="/" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
           <div style={{ fontSize: "28px" }}>🏠</div>
           <div>Accueil</div>
-        </div>
+        </a>
 
-        <div style={{ textAlign: "center", fontSize: "14px" }}>
+        <a href="/agenda" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
           <div style={{ fontSize: "28px" }}>📅</div>
           <div>Agenda</div>
-        </div>
+        </a>
 
-        {/* BOUTON + */}
+        <a href="/ia" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
+          <div style={{ fontSize: "28px" }}>🤖</div>
+          <div>Assistant</div>
+        </a>
+
         <div
+          onClick={() => setOpenMenu(!openMenu)}
           style={{
             backgroundColor: "#00aaff",
             color: "white",
@@ -140,26 +218,27 @@ export default function HomePage() {
             fontSize: "40px",
             fontWeight: "bold",
             marginTop: "-40px",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+            cursor: "pointer"
           }}
         >
           +
         </div>
 
-        <div style={{ textAlign: "center", fontSize: "14px" }}>
+        <a href="/messages" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
           <div style={{ fontSize: "28px" }}>💬</div>
           <div>Messages</div>
-        </div>
+        </a>
 
-        <div style={{ textAlign: "center", fontSize: "14px" }}>
+        <a href="/demarches" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
           <div style={{ fontSize: "28px" }}>📝</div>
           <div>Démarches</div>
-        </div>
+        </a>
 
-        <div style={{ textAlign: "center", fontSize: "14px" }}>
+        <a href="/profil" style={{ textAlign: "center", fontSize: "14px", color: "white", textDecoration: "none" }}>
           <div style={{ fontSize: "28px" }}>👤</div>
           <div>Profil</div>
-        </div>
+        </a>
       </div>
     </div>
   );
