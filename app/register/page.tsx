@@ -28,15 +28,7 @@ export default function RegisterPage() {
       <input
         type="text"
         placeholder="Votre prénom"
-        style={{
-          width: "100%",
-          padding: "15px",
-          marginTop: "5px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-          border: "1px solid #ccc",
-          fontSize: "18px"
-        }}
+        style={inputStyle}
       />
 
       {/* Nom */}
@@ -44,15 +36,7 @@ export default function RegisterPage() {
       <input
         type="text"
         placeholder="Votre nom"
-        style={{
-          width: "100%",
-          padding: "15px",
-          marginTop: "5px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-          border: "1px solid #ccc",
-          fontSize: "18px"
-        }}
+        style={inputStyle}
       />
 
       {/* Email */}
@@ -60,46 +44,24 @@ export default function RegisterPage() {
       <input
         type="email"
         placeholder="Votre email"
-        style={{
-          width: "100%",
-          padding: "15px",
-          marginTop: "5px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-          border: "1px solid #ccc",
-          fontSize: "18px"
-        }}
+        style={inputStyle}
       />
 
       {/* Téléphone */}
-      <label style={{ fontSize: "18px", fontWeight: "bold" }}>Téléphone</label>
+      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+        Téléphone (optionnel)
+      </label>
       <input
         type="tel"
         placeholder="Votre numéro"
-        style={{
-          width: "100%",
-          padding: "15px",
-          marginTop: "5px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-          border: "1px solid #ccc",
-          fontSize: "18px"
-        }}
+        style={inputStyle}
       />
 
       {/* Langue */}
-      <label style={{ fontSize: "18px", fontWeight: "bold" }}>Langue</label>
-      <select
-        style={{
-          width: "100%",
-          padding: "15px",
-          marginTop: "5px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-          border: "1px solid #ccc",
-          fontSize: "18px"
-        }}
-      >
+      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+        Langue préférée
+      </label>
+      <select style={inputStyle}>
         <option>Français</option>
         <option>Anglais</option>
         <option>Arabe</option>
@@ -107,7 +69,45 @@ export default function RegisterPage() {
         <option>Espagnol</option>
       </select>
 
-      {/* Bouton Créer un compte */}
+      {/* Type de profil */}
+      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+        Type de profil
+      </label>
+      <select style={inputStyle}>
+        <option>Utilisateur</option>
+        <option>Accompagnant</option>
+        <option>Travailleur social</option>
+      </select>
+
+      {/* Mot de passe */}
+      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+        Mot de passe
+      </label>
+      <input
+        type="password"
+        placeholder="Votre mot de passe"
+        style={inputStyle}
+      />
+
+      {/* Confirmation */}
+      <label style={{ fontSize: "18px", fontWeight: "bold" }}>
+        Confirmation du mot de passe
+      </label>
+      <input
+        type="password"
+        placeholder="Confirmez votre mot de passe"
+        style={inputStyle}
+      />
+
+      {/* CGU */}
+      <div style={{ margin: "20px 0", fontSize: "16px" }}>
+        <input type="checkbox" id="cgu" />
+        <label htmlFor="cgu" style={{ marginLeft: "10px" }}>
+          J’accepte les Conditions Générales d’Utilisation
+        </label>
+      </div>
+
+      {/* Bouton */}
       <button
         style={{
           width: "100%",
@@ -122,10 +122,10 @@ export default function RegisterPage() {
           marginBottom: "20px"
         }}
       >
-        Créer un compte
+        Créer mon compte
       </button>
 
-      {/* Lien vers Login */}
+      {/* Lien */}
       <div style={{ textAlign: "center", fontSize: "16px" }}>
         Déjà un compte ?{" "}
         <a href="/login" style={{ color: "#0070f3", fontWeight: "bold" }}>
@@ -135,3 +135,13 @@ export default function RegisterPage() {
     </div>
   );
 }
+
+const inputStyle = {
+  width: "100%",
+  padding: "15px",
+  marginTop: "5px",
+  marginBottom: "20px",
+  borderRadius: "10px",
+  border: "1px solid #ccc",
+  fontSize: "18px"
+};
