@@ -97,7 +97,7 @@ export default function LoginPage() {
         style={{
           width: "100%",
           padding: "16px",
-          backgroundColor: "white",
+          backgroundColor: "blue",
           border: "2px solid #ccc",
           borderRadius: "12px",
           fontSize: "18px",
