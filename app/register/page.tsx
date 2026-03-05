@@ -1,112 +1,202 @@
-"use client";
-
-import { useState } from "react";
-
 export default function RegisterPage() {
-  const [form, setForm] = useState({
-    prenom: "",
-    nom: "",
-    email: "",
-    password: "",
-    confirm: "",
-    cgu: false,
-    autoDocs: false,
-    analytics: false,
-  });
-
-  function updateField(field: string, value: any) {
-    setForm({ ...form, [field]: value });
-  }
-
   return (
-    <div className="min-h-screen bg-sky-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
-        {/* Logo + titre */}
-        <div className="text-center">
-          <div className="text-3xl font-bold text-sky-700 mb-1">AIDA</div>
-          <h1 className="text-lg font-semibold text-sky-900">
-            Créer un compte
-          </h1>
-        </div>
+    <div
+      style={{
+        maxWidth: "500px",
+        margin: "40px auto",
+        padding: "20px",
+        fontFamily: "sans-serif",
+        lineHeight: 1.5
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "32px",
+          marginBottom: "25px",
+          textAlign: "center",
+          fontWeight: "bold"
+        }}
+      >
+        Créer un compte
+      </h1>
 
-        {/* Formulaire */}
-        <form className="flex flex-col gap-3">
-          <input
-            type="text"
-            placeholder="Prénom"
-            className="rounded-xl border border-gray-200 px-3 py-2 text-sm"
-            onChange={(e) => updateField("prenom", e.target.value)}
-          />
+      {/* Prénom */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Prénom
+        <input
+          type="text"
+          placeholder="Votre prénom"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          <input
-            type="text"
-            placeholder="Nom"
-            className="rounded-xl border border-gray-200 px-3 py-2 text-sm"
-            onChange={(e) => updateField("nom", e.target.value)}
-          />
+      {/* Nom */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Nom
+        <input
+          type="text"
+          placeholder="Votre nom"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          <input
-            type="email"
-            placeholder="Email"
-            className="rounded-xl border border-gray-200 px-3 py-2 text-sm"
-            onChange={(e) => updateField("email", e.target.value)}
-          />
+      {/* Email */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Email
+        <input
+          type="email"
+          placeholder="exemple@mail.com"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          <input
-            type="password"
-            placeholder="Mot de passe"
-            className="rounded-xl border border-gray-200 px-3 py-2 text-sm"
-            onChange={(e) => updateField("password", e.target.value)}
-          />
+      {/* Téléphone */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Téléphone (optionnel)
+        <input
+          type="tel"
+          placeholder="06 12 34 56 78"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          <input
-            type="password"
-            placeholder="Confirmation du mot de passe"
-            className="rounded-xl border border-gray-200 px-3 py-2 text-sm"
-            onChange={(e) => updateField("confirm", e.target.value)}
-          />
+      {/* Langue */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Langue préférée
+        <select
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        >
+          <option value="fr">Français</option>
+          <option value="en">Anglais</option>
+          <option value="ar">Arabe</option>
+          <option value="es">Espagnol</option>
+        </select>
+      </label>
 
-          {/* Cases à cocher */}
-          <label className="flex items-center gap-2 text-xs text-gray-700">
-            <input
-              type="checkbox"
-              onChange={(e) => updateField("cgu", e.target.checked)}
-            />
-            J'accepte les Conditions Générales d’Utilisation.
-          </label>
+      {/* Type de profil */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Type de profil
+        <select
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        >
+          <option value="user">Utilisateur</option>
+          <option value="helper">Accompagnant</option>
+        </select>
+      </label>
 
-          <label className="flex items-center gap-2 text-xs text-gray-700">
-            <input
-              type="checkbox"
-              onChange={(e) => updateField("autoDocs", e.target.checked)}
-            />
-            J’autorise l’application à générer automatiquement des documents.
-          </label>
+      {/* Mot de passe */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Mot de passe
+        <input
+          type="password"
+          placeholder="Votre mot de passe"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          <label className="flex items-center gap-2 text-xs text-gray-700">
-            <input
-              type="checkbox"
-              onChange={(e) => updateField("analytics", e.target.checked)}
-            />
-            J’accepte l’analyse anonyme de mes données d’usage.
-          </label>
+      {/* Confirmation */}
+      <label style={{ display: "block", marginBottom: "18px", fontSize: "18px" }}>
+        Confirmation du mot de passe
+        <input
+          type="password"
+          placeholder="Confirmez votre mot de passe"
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "8px",
+            borderRadius: "10px",
+            border: "2px solid #ccc",
+            fontSize: "18px"
+          }}
+        />
+      </label>
 
-          {/* Bouton */}
-          <button
-            type="submit"
-            className="w-full rounded-full bg-sky-600 text-white py-2 text-sm font-semibold mt-2"
-          >
-            Créer mon compte
-          </button>
-        </form>
+      {/* CGU */}
+      <label
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginBottom: "25px",
+          fontSize: "16px"
+        }}
+      >
+        <input type="checkbox" style={{ width: "22px", height: "22px", marginRight: "12px" }} />
+        J’accepte les Conditions Générales d’Utilisation
+      </label>
 
-        {/* Lien bas */}
-        <p className="text-center text-xs text-gray-500 mt-2">
-          Déjà un compte ?{" "}
-          <a href="/login" className="text-sky-700 font-semibold">
-            Se connecter
-          </a>
-        </p>
+      {/* Bouton principal */}
+      <button
+        style={{
+          width: "100%",
+          padding: "18px",
+          backgroundColor: "#0070f3",
+          color: "white",
+          border: "none",
+          borderRadius: "12px",
+          fontSize: "20px",
+          cursor: "pointer",
+          marginBottom: "25px",
+          fontWeight: "bold"
+        }}
+      >
+        Créer mon compte
+      </button>
+
+      {/* Déjà un compte */}
+      <div style={{ textAlign: "center", fontSize: "16px" }}>
+        Déjà un compte ?{" "}
+        <a href="/login" style={{ color: "#0070f3", fontWeight: "bold" }}>
+          Se connecter
+        </a>
       </div>
     </div>
   );
