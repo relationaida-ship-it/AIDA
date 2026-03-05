@@ -6,23 +6,28 @@ export default function IApage() {
         margin: "0 auto",
         padding: "20px",
         fontFamily: "sans-serif",
-        lineHeight: 1.5
+        lineHeight: 1.5,
+        backgroundColor: "white",
+        minHeight: "100vh",
+        color: "black"
       }}
     >
+      {/* Titre */}
       <h1
         style={{
           fontSize: "30px",
           fontWeight: "bold",
           marginBottom: "25px",
+          color: "#0070f3",
           textAlign: "center"
         }}
       >
         Assistant IA
       </h1>
 
-      {/* Scanner un document */}
+      {/* Scanner */}
       <a
-        href="#"
+        href="/ia/scanner"
         style={{
           display: "block",
           backgroundColor: "#0070f3",
@@ -38,7 +43,7 @@ export default function IApage() {
         📷 Scanner un document
       </a>
 
-      {/* Résumer un document */}
+      {/* Résumer */}
       <a
         href="#"
         style={{
@@ -74,7 +79,7 @@ export default function IApage() {
         ❓ Poser une question (oral / écrit)
       </a>
 
-      {/* Traduire un texte */}
+      {/* Traduire */}
       <a
         href="#"
         style={{

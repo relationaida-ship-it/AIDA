@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-// Définition du type du résultat du scan
 type ScanResult = {
   text: string;
   rdv: string;
@@ -12,7 +11,6 @@ type ScanResult = {
 export default function ScannerPage() {
   const [result, setResult] = useState<ScanResult | null>(null);
 
-  // Fonction de test pour simuler un scan
   const simulateScan = () => {
     setResult({
       text: "Texte détecté dans le document",
@@ -29,7 +27,10 @@ export default function ScannerPage() {
         margin: "0 auto",
         padding: "20px",
         fontFamily: "sans-serif",
-        lineHeight: 1.5
+        lineHeight: 1.5,
+        backgroundColor: "white",
+        minHeight: "100vh",
+        color: "black"
       }}
     >
       <h1
@@ -37,13 +38,14 @@ export default function ScannerPage() {
           fontSize: "30px",
           fontWeight: "bold",
           marginBottom: "25px",
+          color: "#0070f3",
           textAlign: "center"
         }}
       >
         📷 Scanner un document
       </h1>
 
-      {/* Bouton prendre une photo */}
+      {/* Prendre une photo */}
       <label
         style={{
           display: "block",
@@ -63,11 +65,11 @@ export default function ScannerPage() {
           accept="image/*"
           capture="environment"
           style={{ display: "none" }}
-          onChange={simulateScan} // Pour tester
+          onChange={simulateScan}
         />
       </label>
 
-      {/* Bouton importer un fichier */}
+      {/* Importer un fichier */}
       <label
         style={{
           display: "block",
@@ -86,11 +88,11 @@ export default function ScannerPage() {
           type="file"
           accept="image/*,application/pdf"
           style={{ display: "none" }}
-          onChange={simulateScan} // Pour tester
+          onChange={simulateScan}
         />
       </label>
 
-      {/* Résultat du scan */}
+      {/* Résultat */}
       {result && (
         <div
           style={{
@@ -100,16 +102,13 @@ export default function ScannerPage() {
             marginTop: "30px"
           }}
         >
-          <h2 style={{ fontSize: "22px", marginBottom: "10px" }}>
+          <h2 style={{ fontSize: "22px", marginBottom: "10px", color: "#0070f3" }}>
             Résultat du scan
           </h2>
 
           <p><strong>Texte détecté :</strong><br />{result.text}</p>
-
           <p><strong>Rendez-vous détecté :</strong><br />{result.rdv}</p>
-
           <p><strong>Résumé :</strong><br />{result.resume}</p>
-
           <p><strong>Traduction :</strong><br />{result.traduction}</p>
 
           <button
